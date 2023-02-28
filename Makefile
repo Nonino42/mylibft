@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/02/28 14:41:55 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/02/28 21:14:02 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,16 @@ LIBFT_DIR = src/libft/
 FTPRINTF_DIR = src/ft_printf/
 GNL_DIR = src/get_next_line/
 NAME = libft.a
+
+# <<<<<<<<<< colors >>>>>>>>>> #
+DEF = \033[0m
+BOLD = \033[1m
+CUR = \033[3m
+UL = \033[4m
+UP = \033[A
+
+GRAY = \033[2;37m
+GREEN = \033[1;32m
 
 #################### SOURCES AND OBJECTS ####################
 SRCS_LIBFT =	ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
@@ -48,27 +58,29 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 %.o:%.c ${H_FILE}
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	@echo "[${notdir $^}] to [${notdir $@}]"
+	@echo "${UP}${UP}"
 
-#################### RULES ####################
+# <<<<<<<<<< RULES >>>>>>>>>> #
 all:	${NAME}
 
 ${NAME}:	${OBJS}
-	@echo "\n\033[3m\033[2;37m\t- Compiling...\033[0m"
+	@echo "\n${CUR}${GRAY}\t- Compiling...${DEF}"
 	@ar rc ${NAME} ${OBJS}
 	@ranlib ${NAME}
-	@echo "\033[3m\033[1;32m   - Compiled -\033[0m"
+	@echo "${CUR}${BOLD}${GREEN}   ${UL}- Compiled -${DEF}\n"
 
 clean:
-	@echo "\n\033[3m\033[2;37m\t- Cleaning objects...\033[0m"
+	@echo "\n${CUR}${GRAY}\t- Removing object files...${DEF}"
 	@rm -f ${OBJS}
 
 fclean:	clean
-	@echo "\033[3m\033[2;37m\t- Cleaning ${NAME}...\033[0m"
+	@echo "${CUR}${GRAY}\t- Removing ${BOLD}${NAME}...${DEF}\n"
 	@rm -f ${NAME}
-	@echo "${_BOLD}${_IRED}.a file destroyed${_END}"
-	@echo "\033[3m\033[1;32m   - Cleaned -\033[0m"
+	@echo "${CUR}${BOLD}${GREEN}   ${UL}- Cleaned -${DEF}\n"
 
 re:	fclean all
 
 .PHONY: all clean fclean re bonus
+
