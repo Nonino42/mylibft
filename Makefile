@@ -6,11 +6,11 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/02/28 21:14:02 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/02/28 21:29:31 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#################### PRESETTINGS ####################
+# <<<<<<<<<< presettings >>>>>>>>>> #
 H_DIR = inc/
 LIBFT_DIR = src/libft/
 FTPRINTF_DIR = src/ft_printf/
@@ -27,7 +27,7 @@ UP = \033[A
 GRAY = \033[2;37m
 GREEN = \033[1;32m
 
-#################### SOURCES AND OBJECTS ####################
+# <<<<<<<<<<<< sources and objects >>>>>>>>>> #
 SRCS_LIBFT =	ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 					ft_isdigit.c ft_isprint.c ft_memcpy.c ft_memset.c \
 					ft_strlen.c ft_memmove.c ft_strlcpy.c ft_strlcat.c \
@@ -53,7 +53,7 @@ SRCS =	${addprefix ${LIBFT_DIR}, ${SRCS_LIBFT}} \
 
 OBJS =	${SRCS:.c=.o}
 
-#################### COMPILER ####################
+# <<<<<<<<<< compiler >>>>>>>>>> #
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -62,7 +62,7 @@ CFLAGS = -Wall -Wextra -Werror
 	@echo "[${notdir $^}] to [${notdir $@}]"
 	@echo "${UP}${UP}"
 
-# <<<<<<<<<< RULES >>>>>>>>>> #
+# <<<<<<<<<< rules >>>>>>>>>> #
 all:	${NAME}
 
 ${NAME}:	${OBJS}
@@ -83,4 +83,3 @@ fclean:	clean
 re:	fclean all
 
 .PHONY: all clean fclean re bonus
-
