@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/02/28 21:29:31 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/01 15:05:41 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ DEF = \033[0m
 BOLD = \033[1m
 CUR = \033[3m
 UL = \033[4m
-UP = \033[A
 
 GRAY = \033[2;37m
 GREEN = \033[1;32m
@@ -59,8 +58,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 %.o:%.c ${H_FILE}
 	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
-	@echo "[${notdir $^}] to [${notdir $@}]"
-	@echo "${UP}${UP}"
 
 # <<<<<<<<<< rules >>>>>>>>>> #
 all:	${NAME}
