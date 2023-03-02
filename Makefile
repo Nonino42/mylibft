@@ -6,7 +6,7 @@
 #    By: hanmpark <hanmpark@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/08 16:40:47 by hanmpark          #+#    #+#              #
-#    Updated: 2023/03/01 15:05:41 by hanmpark         ###   ########.fr        #
+#    Updated: 2023/03/02 16:05:12 by hanmpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,8 +64,7 @@ all:	${NAME}
 
 ${NAME}:	${OBJS}
 	@echo "\n${CUR}${GRAY}\t- Compiling...${DEF}"
-	@ar rc ${NAME} ${OBJS}
-	@ranlib ${NAME}
+	@ar rcs ${NAME} ${OBJS}
 	@echo "${CUR}${BOLD}${GREEN}   ${UL}- Compiled -${DEF}\n"
 
 clean:
